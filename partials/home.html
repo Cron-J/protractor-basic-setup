@@ -1,34 +1,33 @@
 <div class="row" data-ng-controller="testCtrl">
 	<h1>Test form</h1>
   <div class="well">
-    <div>
-      <h4>Attribute</h4>
-      <form>
-        <div class="form-group">
-          <div id="divId">
-            <h5 class="heading">This is test example</h5>
-            <p class="class1" ng-show="attribute.id">View Attribute {{attribute.id}}</p>
-            <p class="class2" ng-hide="attribute.id">New Attribute</p>
-            <div class="col-md-12">
-              <input type="text" class="col-md-12 attributeClass" name="attributeName" ng-model="attribute.name" ng-readonly="attribute.id"ng-pattern="/^[a-zA-Z0-9_-]+$/" /> 
-            </div>
-            <div class="col-md-12">
-              <input type="checkbox" class="col-md-4 attributeClass" name="isChecked" ng-model="attribute.isChecked" ng-disabled="attribute.id" value="false" />
-            </div>  
-            <div id="list">
-              <p> These are list items </p>
-              <ul ng-repeat="item in itemList">
-                <li>Number: {{item.number}}</li>
-                <li>Name: {{item.name}}</li>
-              </ul>
-            </div>
-            <button class="btn btn-default" ng-show="status == 'new'" ng-click="save(attribute)">Ok</button>
-            <button class="btn btn-default" ng-show="status == 'view'" ng-click="back()">Back</button>
+    <h4>Attribute</h4>
+    <form>
+      <div class="form-group">
+        <div id="divId">
+          <h5 class="heading">This is test example</h5>
+          <p class="class1" ng-show="attribute.id">View Attribute {{attribute.id}}</p>
+          <p class="class2" ng-hide="attribute.id">New Attribute</p>
+          <div class="col-md-12">
+            <input type="text" class="col-md-12 attributeClass" name="attributeName" ng-model="attribute.name" ng-readonly="attribute.id"ng-pattern="/^[a-zA-Z0-9_-]+$/" /> 
           </div>
-          <div ng-show="error" class="error">
-            <p>Fill the form with valid data</p>
+          <div class="col-md-12">
+            <input type="checkbox" class="col-md-4 attributeClass" name="isChecked" ng-model="attribute.isChecked" ng-disabled="attribute.id" value="false" />
+          </div>  
+          <div id="list">
+            <p> These are list items </p>
+            <ul ng-repeat="item in itemList">
+              <li>Number: {{item.number}}</li>
+              <li>Name: {{item.name}}</li>
+            </ul>
           </div>
-      </form>
-    </div>
+          <button class="btn btn-default" ng-show="status == 'new'" ng-click="save(attribute)">Ok</button>
+          <button class="btn btn-default" ng-show="status == 'view'" ng-click="back()">Back</button>
+        </div>
+        <div ng-show="error" class="error">
+          <p>Fill the form with valid data</p>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
