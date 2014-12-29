@@ -43,8 +43,8 @@ describe('Attribute page', function() {
     it('expecting element by class', function() {
       expect(element(by.css('.class2')).isDisplayed()).toBe(true);
     });
-    it('expecting element count by repeater', function() {
-      expect(itemList.count()).toBe(4);
+    iit('expecting element count by repeater', function() {
+     expect(element.all(by.repeater('item in itemList')).count()).toBe(3);
     });
     it('expecting element by text message', function() {
       expect(element(by.tagName('h5')).getText()).toContain("This is test example");      
