@@ -1,17 +1,16 @@
 'use strict';
 
 describe('Attribute page', function() {
-  var ptor;
   beforeEach(function() {
     //browser loading
     browser.ignoreSynchronization = true;
-    ptor = protractor.getInstance();
+    this.title = browser.getTitle();
     //passing initial url
     browser.get('http://localhost:9000/#/');
-    ptor.sleep(500);
+    browser.sleep(500);
     //expecting url
     expect(browser.getCurrentUrl()).toContain('/');
-    ptor.sleep(500);
+    browser.sleep(500);
   });
 
   afterEach(function() {
@@ -20,7 +19,7 @@ describe('Attribute page', function() {
 
   describe('able to test new page using', function() {
     beforeEach(function() {
-      ptor.sleep(500);   
+      browser.sleep(500);   
     });
     it('element tested by id', function() {
       var ele = element(by.id('divId'));
@@ -63,7 +62,7 @@ describe('Attribute page', function() {
   
   describe('able to test form by', function() {
     beforeEach(function() {
-      ptor.sleep(500);   
+      browser.sleep(500);   
     });
     it('successful submit', function() {
       expect(element(by.tagName('h1')).getText()).toContain("Test form");
@@ -75,16 +74,16 @@ describe('Attribute page', function() {
       var listCount = element.all(by.repeater('item in itemList'));
       expect(listCount.count()).toBe(3);
       element(by.css('[ng-click="save(attribute)"]')).click();
-      ptor.sleep(1000);
+      browser.sleep(1000);
       expect(element(by.css('.class1')).getText()).toContain("View Attribute 1");
-      ptor.sleep(1000);
+      browser.sleep(1000);
       element(by.css('[ng-click="back()"]')).click();
       expect(element(by.css('.class2')).getText()).toContain("New Attribute");
-      ptor.sleep(1000);
+      browser.sleep(1000);
     });
     it('error submit', function() {
       element(by.css('[ng-click="save(attribute)"]')).click();
-      ptor.sleep(1000);
+      browser.sleep(1000);
       expect(element(by.css('.error')).getText()).toContain("Fill the form with valid data");
     });
 
